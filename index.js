@@ -2,7 +2,7 @@
 
 var express = require('express');
 var kraken = require('kraken-js');
-
+var mongoose = require('mongoose');
 
 var options, app;
 
@@ -19,6 +19,9 @@ options = {
         next(null, config);
     }
 };
+
+var config = require('./config');
+mongoose.connect(config.mongourl, { useMongoClient: true });
 
 app = module.exports = express();
 app.use(kraken(options));

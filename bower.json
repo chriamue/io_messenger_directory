@@ -1,0 +1,21 @@
+{
+  "name": "io-messenger-directory",
+  "description": "Server for io_messenger to get iota address by phone number.",
+  "main": "index.js",
+  "author": "chriamue",
+  "moduleType": [
+    "amd"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "requirejs": "^2.1.16"
+  }
+}

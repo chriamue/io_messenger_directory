@@ -14,15 +14,20 @@ exports.get = function (req, res) {
 };
 
 exports.put = function (req, res) {
-    var id = req.id;
-    var address = new Address();
-    address.id = req.id;
-    address.address = req.body.address;
-    address.save(function(err) {
-        if(err)
-            console.error('failed saving address ', err);
+    var id = req.params.id;
+    Address.findOne({ id: id}, function(err, address) {
+        if(err || !address) {
+            address = new Address();
+            address.id = id;
+        }
+        console.log(req.body);
+        console.log(req.body.address);
+        address.address = req.body.address;
+        address.save(function(err) {
+            if(err)
+                console.error('failed saving address ', err);
+        });
     });
-
     return res.status(200)
     .send({message: id});
 };

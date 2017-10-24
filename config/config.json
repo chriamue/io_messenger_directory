@@ -56,7 +56,29 @@
                 ]
             }
         },
+
+        "appsec": {
+            "priority": 110,
+            "module": {
+                "name": "lusca",
+                "arguments": [
+                    {
+                        "csrf": false,
+                        "xframe": "SAMEORIGIN",
+                        "p3p": false,
+                        "csp": false
+                    }
+                ]
+            }
+        },
         
+        "json":{
+            "priority": 120,
+            "module": {
+                "name":"body-parser",
+                "method": "json"
+            }
+        },
 
         "static": {
             "module": {

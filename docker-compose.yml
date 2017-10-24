@@ -1,0 +1,18 @@
+version: '3'
+services:
+
+  mongodb:
+    image: mongo:3.4
+#    ports:
+#      - "27017:27017"
+    command: "--smallfiles --logpath=/dev/null"
+
+  app:
+    build: .
+    env_file: .env
+    ports:
+      - "$PORT:$PORT"
+#    volumes:
+#      - .:/usr/src/app/
+    depends_on:
+     - mongodb

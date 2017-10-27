@@ -9,7 +9,8 @@ exports.get = function (req, res) {
             console.error('Error finding address: ', err);
             return res.status(404).send(err);
         }
-        return res.status(200).send(address);
+        var message = {id: id, address: address.address};
+        return res.status(200).send(message);
     });
 };
 
